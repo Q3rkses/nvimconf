@@ -51,10 +51,11 @@ return {
           "“The mind is everything. What you think you become.” – Bruce Lee, 1971",
           "“Strength does not come from winning. Your struggles develop your strengths.” – Arnold Schwarzenegger, 1977",
           "“If you want something, you’ve never had, you must be willing to do something you’ve never done.” – Thomas Jefferson, 1784",
-          "“If you don’t take risks, you can’t create a future.” – Monkey D. Luffy, One Piece, 1999",
-          "“There’s no meaning in being afraid. The only thing fear does is hold you back.” – Vegeta, Dragon Ball Z, 1989",
-          "“You don’t have to be crazy strong. You just have to keep going.” – Yuji Itadori, Jujutsu Kaisen, 2020",
-          "“You should enjoy the little detours. Because that’s where you’ll find the things more important than what you want.” – Ging Freecss, Hunter × Hunter, 2011",
+          "“The important thing isn't \"can you read music?\" It's can you hear it?” – Niels Bohr, Oppenheimer",
+          "“If you don’t take risks, you can’t create a future.” – Monkey D. Luffy, One Piece",
+          "“Every strength you see today was brom from a struggle” – Goku, Dragon Ball Z",
+          "“You don’t have to be crazy strong. You just have to keep going.” – Yuji Itadori, Jujutsu Kaisen",
+          "“You should enjoy the little detours. Because that’s where you’ll find the things more important than what you want.” – Ging Freecss, Hunter × Hunter",
         }
 
         math.randomseed(vim.loop.hrtime() + vim.fn.getpid())
@@ -86,7 +87,7 @@ return {
       layout = {
         preset = "default",
         width = 0.95,
-        height = 0.90,
+        height = 0.95,
         border = "rounded",
       },
 
@@ -94,12 +95,47 @@ return {
 
       previewers = {
         file = {
-          max_size = 256 * 1024,
+          max_size = 128 * 1024, -- smaller cap = snappier
           max_line_length = 500,
+
+          exclude = {
+            "%.jpg$",
+            "%.jpeg$",
+            "%.png$",
+            "%.gif$",
+            "%.webp$",
+            "%.svg$",
+            "%.pdf$",
+            "%.mp4$",
+            "%.mov$",
+            "%.mkv$",
+            "%.webm$",
+            "%.zip$",
+            "%.tar$",
+            "%.gz$",
+            "%.7z$",
+          },
         },
       },
 
       sources = {
+        files = {
+          -- Hide binary / media stuff from file pickers
+          exclude = {
+            "*.jpg",
+            "*.jpeg",
+            "*.png",
+            "*.gif",
+            "*.webp",
+            "*.svg",
+            "*.pdf",
+            "*.mp4",
+            "*.mov",
+            "*.mkv",
+            "*.webm",
+          },
+        },
+
         explorer = {
           layout = {
             preset = "sidebar",
@@ -143,28 +179,5 @@ return {
     --------------------------------------------------------------------------
     gitbrowse = { enabled = true },
     lazygit = { enabled = true },
-
-    --------------------------------------------------------------------------
-    -- Image rendering (Kitty graphics protocol)
-    --------------------------------------------------------------------------
-    image = {
-      enabled = true,
-      formats = {
-        "png",
-        "jpg",
-        "jpeg",
-        "gif",
-        "bmp",
-        "webp",
-        "tiff",
-        "heic",
-        "avif",
-        "pdf",
-        "mp4",
-        "mov",
-        "mkv",
-        "webm",
-      },
-    },
   },
 }
