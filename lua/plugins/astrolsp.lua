@@ -1,10 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
--- Configuration documentation can be found with `:h astrolsp`
--- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
---       as this provides autocomplete and documentation while editing
-
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
@@ -39,12 +32,51 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+      "clangd",
+      "pyright",
+      "rust_analyzer",
+      "lua_ls",
+      "bashls",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
-      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      clangd = {
+        -- makes completion/imports nicer; also helps with some offsetEncoding issues
+        capabilities = { offsetEncoding = "utf-8" },
+        cmd = {
+          "clangd",
+          "--background-index",
+          "--clang-tidy",
+          "--completion-style=detailed",
+          "--header-insertion=iwyu",
+          "--header-insertion-decorators",
+        },
+      },
+
+      pyright = {
+        settings = {
+          python = {
+            analysis = {
+              typeCheckingMode = "basic",
+              autoImportCompletions = true,
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = "openFilesOnly",
+            },
+          },
+        },
+      },
+
+      lua_ls = {
+        settings = {
+          Lua = {
+            hint = { enable = true },
+            diagnostics = { globals = { "vim" } },
+            workspace = { checkThirdParty = false },
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
