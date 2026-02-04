@@ -1,0 +1,28 @@
+return {}
+-- remove if you want to use autosave
+
+-- return {
+--   "Pocco81/auto-save.nvim",
+--   opts = {
+--     enabled = true,
+--     execution_message = {
+--       enabled = false,
+--     },
+--     trigger_events = {
+--       "InsertLeave",
+--       "TextChanged",
+--     },
+--     condition = function(buf)
+--       local fn = vim.fn
+--       local utils = require "auto-save.utils.data"
+--
+--       if fn.getbufvar(buf, "&modifiable") == 1
+--         and utils.not_in(fn.getbufvar(buf, "&buftype"), { "nofile", "prompt", "terminal" })
+--       then
+--         return true
+--       end
+--       return false
+--     end,
+--     debounce_delay = 500,
+--   },
+-- }

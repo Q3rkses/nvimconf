@@ -54,7 +54,6 @@ return {
           "“The important thing isn't \"can you read music?\" It's can you hear it?” – Niels Bohr, Oppenheimer",
           "“If you don’t take risks, you can’t create a future.” – Monkey D. Luffy, One Piece",
           "“Every strength you see today was brom from a struggle” – Goku, Dragon Ball Z",
-          "“You don’t have to be crazy strong. You just have to keep going.” – Yuji Itadori, Jujutsu Kaisen",
           "“You should enjoy the little detours. Because that’s where you’ll find the things more important than what you want.” – Ging Freecss, Hunter × Hunter",
         }
 

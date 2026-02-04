@@ -1,0 +1,60 @@
+# ----------------------------
+# Neovim runtime junk
+# ----------------------------
+shada/
+*.shada
+undo/
+swap/
+backup/
+sessions/
+Session.vim
+
+# ----------------------------
+# Cache / state dirs
+# ----------------------------
+.cache/
+.state/
+.local/
+.nvm/
+.nvim/
+
+# ----------------------------
+# Plugin manager artifacts
+# ----------------------------
+plugin/packer_compiled.lua
+.rocks/
+lazy.nvim/
+# lazy-lock.json
+
+# ----------------------------
+# LSP / tooling downloads
+# ----------------------------
+mason/
+treesitter/
+lsp/
+
+# ----------------------------
+# OS files
+# ----------------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------------
+# Secrets / private config
+# ----------------------------
+lua/config/private.lua
+lua/private.lua
+secrets.lua
+
+# ----------------------------
+# Logs
+# ----------------------------
+*.log
+
+# ----------------------------
+# Editor temp files
+# ----------------------------
+*~
+*.swp
+*.swo
+*.bak

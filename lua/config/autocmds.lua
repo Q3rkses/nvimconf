@@ -41,18 +41,4 @@ return {
       end,
     },
   },
-
-  no_binary_image_buffers = {
-    {
-      event = { "BufReadPre", "BufNewFile" },
-      pattern = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.bmp", "*.tiff" },
-      desc = "Disable text features for image files",
-      callback = function(args)
-        vim.bo[args.buf].swapfile = false
-        vim.bo[args.buf].undofile = false
-        vim.bo[args.buf].bufhidden = "wipe"
-        vim.bo[args.buf].buftype = "nofile"
-      end,
-    },
-  },
 }

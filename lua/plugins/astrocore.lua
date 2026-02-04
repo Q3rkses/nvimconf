@@ -1,6 +1,3 @@
--- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
--- Configuration documentation: :h astrocore
-
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
@@ -69,16 +66,6 @@ return {
           end,
           desc = "Save and format",
         },
-      },
-
-      v = {
-        ["<A-j>"] = { ":move '>+1<CR>gv=gv", desc = "Move selection down" },
-        ["<A-k>"] = { ":move '<-2<CR>gv=gv", desc = "Move selection up" },
-      },
-
-      x = {
-        ["<A-j>"] = { ":move '>+1<CR>gv=gv", desc = "Move selection down" },
-        ["<A-k>"] = { ":move '<-2<CR>gv=gv", desc = "Move selection up" },
       },
     },
   },

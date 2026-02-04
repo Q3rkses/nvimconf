@@ -12,7 +12,8 @@ return {
       json = { "jq" },
       yaml = { "yamlfmt" },
       markdown = { "prettier" },
+      sh = { "shfmt" },
+      bash = { "shfmt" },
     },
   },
 }
-
