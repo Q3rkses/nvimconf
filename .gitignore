@@ -24,7 +24,7 @@ Session.vim
 plugin/packer_compiled.lua
 .rocks/
 lazy.nvim/
-# lazy-lock.json
+lazy-lock.json
 
 # ----------------------------
 # LSP / tooling downloads

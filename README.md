@@ -1,6 +1,6 @@
 template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
 
-## ⚡ Requirements
+## ⚡ Requirements (copied from the official AstroNvim github)
 
 - [Nerd Fonts](https://www.nerdfonts.com/font-downloads) (_Optional with manual intervention:_ See [Documentation on customizing icons](https://docs.astronvim.com/Recipes/icons)) <sup>[[1]](#1)</sup>
 - [Neovim 0.10+ (_Not_ including nightly)](https://github.com/neovim/neovim/releases/tag/stable)
@@ -15,26 +15,31 @@ template for getting started with [AstroNvim](https://github.com/AstroNvim/Astro
   - [Python](https://www.python.org/) - python repl toggle terminal (`<leader>tp`)
   - [Node](https://nodejs.org/en/) - node repl toggle terminal (`<leader>tn`)
 
-> [!NOTE] > <sup id="1">[1]</sup> All downloadable Nerd Fonts contain icons which are used by AstroNvim. Install the Nerd Font of your choice to your system and in your terminal emulator settings, set its font face to that Nerd Font. If you are using AstroNvim on a remote system via SSH, you do not need to install the font on the remote system.
-> [!NOTE] > <sup id="2">[2]</sup> Note when using default theme: For MacOS, the default terminal does not have true color support. You will need to use [iTerm2](https://iterm2.com/), [Kitty](https://sw.kovidgoyal.net/kitty/), [WezTerm](https://wezterm.org), or another [terminal emulator](https://github.com/termstandard/colors?tab=readme-ov-file#truecolor-support-in-output-devices) that has true color support.
-
 #### Recommended terminal emulator,
+
 I recommend using kitty as the terminal emulator and have added a folder called nvim_kitty_config, which one can easily simlink to the correct position in .config/kitty.
+https://sw.kovidgoyal.net/kitty/
 
 First backup your own kitty files (if you dont have kitty skip this step)
+
 ```shell
 mv ~/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf.bak 2>/dev/null
 mv ~/.config/kitty/theme.conf ~/.config/kitty/theme.conf.bak 2>/dev/null
 ```
+
 ```shell
 ln -s ~/.config/nvim/kitty_nvim_conf/kitty.conf ~/.config/kitty/kitty.conf
 ln -s ~/.config/nvim/kitty_nvim_conf/theme.conf ~/.config/kitty/theme.conf
 ```
 
 #### Useful alias
+
 in ~/.bashrc or ~/.zshrc or ~/.bashaliases
 
+```shell
 code() { nvim "$@"; }
+
+```
 
 #### Start Neovim
 
