@@ -33,7 +33,7 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       "clangd",
-      "pyright",
+      "basedpyright",
       "rust_analyzer",
       "lua_ls",
       "bashls",
@@ -42,21 +42,22 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       clangd = {
-        -- makes completion/imports nicer; also helps with some offsetEncoding issues
-        capabilities = { offsetEncoding = "utf-8" },
+        capabilities = {},
         cmd = {
-          "clangd",
+          "/home/supermann/.local/share/nvim/mason/bin/clangd",
           "--background-index",
           "--clang-tidy",
           "--completion-style=detailed",
           "--header-insertion=iwyu",
           "--header-insertion-decorators",
+          "--offset-encoding=utf-16",
+          "--compile-commands-dir=/home/supermann/vscopium/ros2_ws",
         },
       },
 
-      pyright = {
+      basedpyright = {
         settings = {
-          python = {
+          basedpyright = {
             analysis = {
               typeCheckingMode = "basic",
               autoImportCompletions = true,
