@@ -15,6 +15,31 @@ template for getting started with [AstroNvim](https://github.com/AstroNvim/Astro
   - [Python](https://www.python.org/) - python repl toggle terminal (`<leader>tp`)
   - [Node](https://nodejs.org/en/) - node repl toggle terminal (`<leader>tn`)
 
+#### Dependencies
+
+```shell
+sudo apt install ripgrep fzf npm python3-pip gdu imagemagick ghostscript fd-find -y
+```
+
+#### To use astrovim need nvim >= 0.10
+
+```shell
+sudo apt remove neovim -y  # if installed via apt
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+sudo mv /opt/nvim-linux-x86_64 /opt/nvim
+echo 'export PATH="$PATH:/opt/nvim/bin"' >> ~/.bashrc
+source ~/.bashrc
+nvim --version
+```
+
+#### My Mason Installs
+
+```shell
+:MasonInstall clangd clang-format basedpyright black ruff lua-language-server stylua shfmt jq yamlfmt
+```
+
 #### Recommended terminal emulator,
 
 I recommend using kitty as the terminal emulator and have added a folder called nvim_kitty_config, which one can easily simlink to the correct position in .config/kitty.
