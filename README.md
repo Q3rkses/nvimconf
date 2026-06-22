@@ -15,12 +15,41 @@ template for getting started with [AstroNvim](https://github.com/AstroNvim/Astro
   - [Python](https://www.python.org/) - python repl toggle terminal (`<leader>tp`)
   - [Node](https://nodejs.org/en/) - node repl toggle terminal (`<leader>tn`)
 
-#### Recommended terminal emulator,
+#### Dependencies
+
+```shell
+sudo apt install ripgrep fzf npm python3-pip gdu imagemagick ghostscript fd-find -y
+```
+
+#### To use astrovim need nvim >= 0.10
+If you installed nvim through apt it is likely an old version, therefore we want to delete it first.
+
+```shell
+sudo apt remove neovim -y  # if installed via apt
+```
+
+```shell
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+sudo mv /opt/nvim-linux-x86_64 /opt/nvim
+echo 'export PATH="$PATH:/opt/nvim/bin"' >> ~/.bashrc
+source ~/.bashrc
+nvim --version
+```
+
+#### My Mason Installs
+
+```shell
+:MasonInstall clangd clang-format basedpyright black ruff lua-language-server stylua shfmt jq yamlfmt
+```
+
+#### Recommended terminal emulator (skip this step if you have your own emulator)
 
 I recommend using kitty as the terminal emulator and have added a folder called nvim_kitty_config, which one can easily simlink to the correct position in .config/kitty.
 https://sw.kovidgoyal.net/kitty/
 
-First backup your own kitty files (if you dont have kitty skip this step)
+First backup your own kitty files
 
 ```shell
 mv ~/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf.bak 2>/dev/null
@@ -32,13 +61,33 @@ ln -s ~/.config/nvim/kitty_nvim_conf/kitty.conf ~/.config/kitty/kitty.conf
 ln -s ~/.config/nvim/kitty_nvim_conf/theme.conf ~/.config/kitty/theme.conf
 ```
 
-#### Useful alias
+#### Useful aliases
 
 in ~/.bashrc or ~/.zshrc or ~/.bashaliases
 
 ```shell
 code() { nvim "$@"; }
+```
 
+## For automatic code completion
+
+```shell
+# Bash completions
+if ! shopt -oq posix; then
+	if [ -f /usr/share/bash-completion/bash_completion ]; then
+		. /usr/share/bash-completion/bash_completion
+	elif [ -f /etc/bash_completion ]; then
+		. /etc/bash_completion
+	fi
+fi
+[ -f ~/.local/share/bash-completion/completions/rustup ]
+```
+
+# For fuzzy reverse-search using fzf
+```shell
+# fzf (Ctrl+R fuzzy history search)
+[ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 ```
 
 #### Start Neovim

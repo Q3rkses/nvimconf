@@ -1,5 +1,13 @@
-if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- lua/polish.lua
+vim.filetype.add {
+  extension = {
+    moos = "moos",
+    bhv = "moos",
+  },
+}
 
--- This will run last in the setup process.
--- This is just pure lua so anything that doesn't
--- fit in the normal config locations above can go here
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "moos",
+  callback = function() vim.bo.commentstring = "// %s" end,
+  desc = "Set commentstring for MOOS files",
+})
