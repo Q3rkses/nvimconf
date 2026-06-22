@@ -1,4 +1,14 @@
 return {
+  -- Auto-dismiss the "swap file found" dialog by silently deleting the swap.
+  -- With undofile = true, persistent undo covers the recovery use case.
+  dismiss_swap_dialog = {
+    {
+      event = "SwapExists",
+      desc = "Auto-delete stale swap files without prompting",
+      callback = function() vim.v.swapchoice = "d" end,
+    },
+  },
+
   kitty_padding = {
     {
       event = "VimEnter",
