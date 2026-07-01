@@ -18,6 +18,9 @@ return {
 
         -- install any other package
         "tree-sitter-cli",
+
+        -- XML language server (for .world, .sdf, .urdf, etc.)
+        "lemminx",
       },
     },
   },

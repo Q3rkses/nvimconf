@@ -1,7 +1,7 @@
 return {
   "stevearc/conform.nvim",
   opts = {
-    format_on_save = false, -- we control formatting via Ctrl+S
+    format_on_save = true,
     notify_on_error = false,
 
     formatters_by_ft = {
