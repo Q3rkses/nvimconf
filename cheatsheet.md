@@ -45,6 +45,15 @@ ci"    -> change inside quotes
 ci(    -> change inside parentheses
 ci{    -> change inside braces
 
+# Window shortcuts
+ctrl+w                      -> Which-key for window shortcuts
+ctrl+w+v                    -> split vertically
+ctrl+w+s                    -> split horizontally
+EQUIVALENTLY :sp or :vsp    -> split window
+EQUIVALENTLY <leader>| or <leader>\ -> split window
+ctrl+w + hjkl or arrow keys -> switch window in focus
+
+
 # Between different files
 ctrl + o  -> jump back
 ctrl + i  -> jump forward
@@ -53,6 +62,8 @@ gd        -> go to definition
 gD        -> go to declaration
 gy        -> go to type definition
 gr        -> list references 
+
+
 
 # Inside of filetree
 <leader>e  -> toggle file tree
