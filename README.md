@@ -56,16 +56,10 @@ curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBr
 unzip -o JetBrainsMono.zip -d JetBrainsMono && rm JetBrainsMono.zip && fc-cache -f
 ```
 
-Then inside nvim (Mason-managed LSPs/formatters):
-
-```shell
-:MasonInstall clangd clang-format basedpyright black ruff lua-language-server stylua shfmt jq yamlfmt 
-```
-
 #### My Mason Installs
 
 ```shell
-:MasonInstall clangd clang-format basedpyright black ruff lua-language-server stylua shfmt jq yamlfmt
+:MasonInstall clangd clang-format basedpyright black ruff lua-language-server stylua shfmt jq yamlfmt rust-analyzer
 ```
 
 #### Recommended terminal emulator (skip this step if you have your own emulator)
