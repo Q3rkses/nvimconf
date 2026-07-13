@@ -57,7 +57,10 @@ unzip -o JetBrainsMono.zip -d JetBrainsMono && rm JetBrainsMono.zip && fc-cache 
 ```
 
 Then inside nvim (Mason-managed LSPs/formatters):
+
+```shell
 :MasonInstall clangd clang-format basedpyright black ruff lua-language-server stylua shfmt jq yamlfmt 
+```
 
 #### My Mason Installs
 
