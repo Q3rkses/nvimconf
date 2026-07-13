@@ -17,8 +17,16 @@ template for getting started with [AstroNvim](https://github.com/AstroNvim/Astro
 
 #### Dependencies
 
+I recommend installing tree-sitter-cli through cargo and installing rust through rustup if you intend to use rust again later, this is simply done by
+
 ```shell
-sudo apt install ripgrep fzf npm python3-pip gdu imagemagick ghostscript fd-find -y
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+cargo install tree-sitter-cli
+
+```
+
+```shell
+sudo apt install ripgrep fzf npm python3-pip gdu imagemagick ghostscript fd-find wl-clipboard -y
 ```
 
 #### To use astrovim need nvim >= 0.10
@@ -37,6 +45,22 @@ echo 'export PATH="$PATH:/opt/nvim/bin"' >> ~/.bashrc
 source ~/.bashrc
 nvim --version
 ```
+
+#### A Nerd Font
+Here i show how to install JetBrainsMono but you can pick any you like:
+
+mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
+curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+unzip -o JetBrainsMono.zip -d JetBrainsMono && rm JetBrainsMono.zip && fc-cache -f
+
+Then inside nvim (Mason-managed LSPs/formatters):
+:MasonInstall clangd clang-format basedpyright black ruff lua-language-server stylua shfmt jq yamlfmt# A Nerd Font (kitty/starship/fastfetch glyphs). JetBrainsMono shown; pick any:
+mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
+curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+unzip -o JetBrainsMono.zip -d JetBrainsMono && rm JetBrainsMono.zip && fc-cache -f
+
+And again inside nvim:
+:MasonInstall clangd clang-format basedpyright black ruff lua-language-server stylua shfmt jq yamlfmt
 
 #### My Mason Installs
 

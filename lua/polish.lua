@@ -1,4 +1,7 @@
 -- lua/polish.lua
+
+vim.env.PATH = vim.fn.expand "~/.cargo/bin" .. ":" .. vim.env.PATH
+
 vim.filetype.add {
   extension = {
     moos = "moos",
