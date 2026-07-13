@@ -22,8 +22,9 @@ I recommend installing tree-sitter-cli through cargo and installing rust through
 ```shell
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 cargo install tree-sitter-cli
-
 ```
+
+and then the other apt dependencies,
 
 ```shell
 sudo apt install ripgrep fzf npm python3-pip gdu imagemagick ghostscript fd-find wl-clipboard -y
@@ -49,18 +50,14 @@ nvim --version
 #### A Nerd Font
 Here i show how to install JetBrainsMono but you can pick any you like:
 
+```bash
 mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
 curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
 unzip -o JetBrainsMono.zip -d JetBrainsMono && rm JetBrainsMono.zip && fc-cache -f
+```
 
 Then inside nvim (Mason-managed LSPs/formatters):
-:MasonInstall clangd clang-format basedpyright black ruff lua-language-server stylua shfmt jq yamlfmt# A Nerd Font (kitty/starship/fastfetch glyphs). JetBrainsMono shown; pick any:
-mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts
-curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
-unzip -o JetBrainsMono.zip -d JetBrainsMono && rm JetBrainsMono.zip && fc-cache -f
-
-And again inside nvim:
-:MasonInstall clangd clang-format basedpyright black ruff lua-language-server stylua shfmt jq yamlfmt
+:MasonInstall clangd clang-format basedpyright black ruff lua-language-server stylua shfmt jq yamlfmt 
 
 #### My Mason Installs
 
