@@ -3,21 +3,23 @@ return {
   -- use mason-tool-installer for automatically installing Mason packages
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    -- overrides `require("mason-tool-installer").setup(...)`
     opts = {
-      -- Make sure to use the names found in `:Mason`
       ensure_installed = {
-        -- install language servers
+        -- language servers
         "lua-language-server",
+        "bash-language-server", -- Bash LSP (same)
+        "lemminx", -- XML LSP (for .world, .sdf, .urdf, etc.)
+        "clangd", -- C/C++ LSP
+        "basedpyright", -- Python LSP
 
-        -- install formatters
+        -- formatters / linters (every entry here is referenced by autoformat.lua)
         "stylua",
-
-        -- install debuggers
-        "debugpy",
-
-        -- XML language server (for .world, .sdf, .urdf, etc.)
-        "lemminx",
+        "ruff", -- Python linter+formatter (Rust binary, installs cleanly on 3.14)
+        "clang-format",
+        "prettier",
+        "yamlfmt",
+        "shfmt",
+        "jq",
       },
     },
   },

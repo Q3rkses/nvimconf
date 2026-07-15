@@ -4,6 +4,35 @@ return {
   cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" },
   opts = function()
     local actions = require "diffview.actions"
+
+    -- Resolve a single conflict hunk: <leader>m{o,t,b,a,x}
+    local function choose()
+      local maps = {}
+      for _, side in ipairs { "ours", "theirs", "base", "all", "none" } do
+        local key = side:sub(1, 1)
+        if side == "none" then key = "x" end
+        table.insert(
+          maps,
+          { "n", "<leader>m" .. key, actions.conflict_choose(side), { desc = "Choose " .. side:upper() } }
+        )
+      end
+      return maps
+    end
+
+    -- Resolve every conflict in the file at once: <leader>m{O,T,B,A}
+    local function choose_all()
+      local maps = {}
+      for _, side in ipairs { "ours", "theirs", "base", "all" } do
+        table.insert(maps, {
+          "n",
+          "<leader>m" .. side:sub(1, 1):upper(),
+          actions.conflict_choose_all(side),
+          { desc = "Choose " .. side:upper() .. " (whole file)" },
+        })
+      end
+      return maps
+    end
+
     return {
       view = {
         merge_tool = {
@@ -13,24 +42,8 @@ return {
         },
       },
       keymaps = {
-        file_panel = {
-          { "n", "<leader>mo", actions.conflict_choose "ours", { desc = "Choose OURS" } },
-          { "n", "<leader>mt", actions.conflict_choose "theirs", { desc = "Choose THEIRS" } },
-          { "n", "<leader>mb", actions.conflict_choose "base", { desc = "Choose BASE" } },
-          { "n", "<leader>ma", actions.conflict_choose "all", { desc = "Choose ALL" } },
-          { "n", "<leader>mx", actions.conflict_choose "none", { desc = "Choose NONE" } },
-          { "n", "<leader>mO", actions.conflict_choose_all "ours", { desc = "Choose OURS (whole file)" } },
-          { "n", "<leader>mT", actions.conflict_choose_all "theirs", { desc = "Choose THEIRS (whole file)" } },
-          { "n", "<leader>mB", actions.conflict_choose_all "base", { desc = "Choose BASE (whole file)" } },
-          { "n", "<leader>mA", actions.conflict_choose_all "all", { desc = "Choose ALL (whole file)" } },
-        },
-        view = {
-          { "n", "<leader>mo", actions.conflict_choose "ours", { desc = "Choose OURS" } },
-          { "n", "<leader>mt", actions.conflict_choose "theirs", { desc = "Choose THEIRS" } },
-          { "n", "<leader>mb", actions.conflict_choose "base", { desc = "Choose BASE" } },
-          { "n", "<leader>ma", actions.conflict_choose "all", { desc = "Choose ALL" } },
-          { "n", "<leader>mx", actions.conflict_choose "none", { desc = "Choose NONE" } },
-        },
+        file_panel = vim.list_extend(choose(), choose_all()),
+        view = choose(),
       },
     }
   end,
