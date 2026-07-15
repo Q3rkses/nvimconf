@@ -27,7 +27,7 @@ cargo install tree-sitter-cli
 and then the other apt dependencies,
 
 ```shell
-sudo apt install ripgrep fzf npm python3-pip gdu imagemagick ghostscript fd-find wl-clipboard -y
+sudo apt install ripgrep fzf npm python3-pip python3.14-venv python3-full gdu imagemagick ghostscript fd-find wl-clipboard -y
 ```
 
 #### To use astrovim need nvim >= 0.10
