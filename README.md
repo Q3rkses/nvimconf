@@ -31,6 +31,7 @@ sudo apt install ripgrep fzf npm python3-pip python3.14-venv python3-full gdu im
 ```
 
 #### To use astrovim need nvim >= 0.10
+
 If you installed nvim through apt it is likely an old version, therefore we want to delete it first.
 
 ```shell
@@ -48,6 +49,7 @@ nvim --version
 ```
 
 #### A Nerd Font
+
 Here i show how to install JetBrainsMono but you can pick any you like:
 
 ```bash
@@ -102,10 +104,26 @@ fi
 ```
 
 # For fuzzy reverse-search using fzf
+
 ```shell
 # fzf (Ctrl+R fuzzy history search)
 [ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+```
+
+#### Set nvim as the default text editor
+
+For git
+
+```bash
+git config --global core.editor "nvim"
+```
+
+For systemwide
+
+```bash
+sudo update-alternatives --install /usr/bin/editor editor $(which nvim) 100
+sudo update-alternatives --config editor
 ```
 
 #### Start Neovim
