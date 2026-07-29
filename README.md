@@ -131,3 +131,48 @@ sudo update-alternatives --config editor
 ```shell
 nvim
 ```
+
+## 🖼️ What this setup looks like
+
+Everything below is this config as-is: [ayu-dark](https://github.com/Shatur/neovim-ayu) darkened a few
+steps, an nvchad-style [heirline](https://github.com/rebelot/heirline.nvim) statusline, neo-tree on the
+right, and snacks for the dashboard and pickers.
+
+### Dashboard
+
+`nvim` with no arguments — ASCII banner, `n`/`f`/`q` shortcuts, startup time, and a random quote.
+
+![Dashboard](images/dashboard.png)
+
+### Editing
+
+Two Rust buffers side by side: winbar breadcrumbs (`impl Config` › `build`), a rust-analyzer hover, the
+codelens line above the struct, relative numbers, and the statusline listing the attached LSP and
+formatter.
+
+![Editing a file](images/editor.png)
+
+### Fuzzy finding
+
+`<leader>ff` with a `lua` query — matches on the left, live preview of the highlighted file on the right,
+filling 95% of the window.
+
+![File picker](images/filepicker.png)
+
+The same picker with the window border and the neo-tree column visible along the edge:
+
+![File picker with border](images/filepicker_with_border.png)
+
+### Markdown rendering
+
+`render-markdown.nvim` on this very README — heading icons, bulleted lists, and full-style fenced code
+blocks.
+
+![Markdown rendering](images/markdown.png)
+
+### Symbol outline and TODOs
+
+Aerial on the right listing the symbols of a C++ file, with a `TODO` comment picked out by
+todo-comments.
+
+![Aerial outline and todo-comments](images/extras.jpg.png)

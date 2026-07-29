@@ -22,7 +22,6 @@ return {
   v = {
     ["J"] = { ":m '>+1<CR>gv=gv", desc = "Move selection down", silent = true },
     ["K"] = { ":m '<-2<CR>gv=gv", desc = "Move selection up", silent = true },
-    ["p"] = { [["_dP]], desc = "Paste without overwriting register" },
   },
 
   t = {
