@@ -6,6 +6,7 @@ vim.filetype.add {
   extension = {
     moos = "moos",
     bhv = "moos",
+    tpp = "cpp",
   },
 }
 

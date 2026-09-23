@@ -55,6 +55,13 @@ return {
             desc = "Find file",
             action = function() require("snacks").picker.files() end,
           },
+          {
+            icon = " ",
+            key = "l",
+            desc = "LeetCode",
+            -- Dashboard buffer is unlisted, so the standalone check passes.
+            action = ":Leet",
+          },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
       },

@@ -8,6 +8,8 @@ return {
       "python",
       "cpp",
       "c",
+      "rust", -- leetcode.nvim solutions
+      "html", -- leetcode.nvim question descriptions
       "bash",
       "yaml",
       "json",
